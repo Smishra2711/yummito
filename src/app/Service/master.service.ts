@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +9,23 @@ export class MasterService {
 
   apiServer = "https://api.vettyonline.com/";
 
-  send(apiPath: string, data: any) {
-    return this.http.post(this.apiServer + apiPath, data);
+  post(apiPath: string, body: any) {
+    const headers = { "content-type": "application/json" };
+    return this.http.post(this.apiServer + apiPath, body, { headers: headers });
+  }
+
+  get(apiPath: string) {
+    const headers = { "content-type": "application/json" };
+    return this.http.get(this.apiServer + apiPath, { headers: headers });
+  }
+
+  authPost(apiPath: string, body: any) {
+    const headers = { "content-type": "application/json" };
+    return this.http.post(this.apiServer + apiPath, body, { headers: headers });
+  }
+
+  authGet(apiPath: string) {
+    const headers = { "content-type": "application/json" };
+    return this.http.get(this.apiServer + apiPath, { headers: headers });
   }
 }
