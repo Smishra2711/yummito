@@ -1,73 +1,81 @@
 <div class="pt-4">
-    <h1 class="text-2xl font-bold">Browse Categoery</h1>
-    <!---===================== FIRST ROW CONTAINING THE  STATS CARD STARTS HERE =============================-->
-    <div class="flex justify-center bg-gray-100 py-10 p-10">
-        <!---== First Stats Container ====--->
-        <div class="container mx-auto pr-3">
-            <div
-                class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
-                <div class="h-20 bg-red-400 flex items-center justify-between">
-                    <p class="mr-0 text-white text-lg pl-5">Resturants</p>
-                </div>
-                <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
-                    <p>Resturants Image</p>
-                </div>
-                <p class="py-4 text-3xl ml-5"></p>
-                <!-- <hr > -->
-            </div>
+  <h1 class="text-2xl font-bold">Browse Categoery</h1>
+  <!---===================== FIRST ROW CONTAINING THE  STATS CARD STARTS HERE =============================-->
+  <div class="flex justify-center bg-gray-100 py-10 p-10">
+    <!---== First Stats Container ====--->
+    <div class="container mx-auto pr-3" (click)="getAllStore('Restaurant')">
+      <div
+        class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer"
+      >
+        <div class="h-20 bg-red-400 flex items-center justify-between">
+          <p class="mr-0 text-white text-lg pl-5">Resturants</p>
         </div>
-        <div class="container mx-auto pr-3">
-            <div
-                class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
-                <div class="h-20 bg-yellow-400 flex items-center justify-between">
-                    <p class="mr-0 text-white text-lg pl-5">Grocery</p>
-                </div>
-                <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
-                    <p>Resturants Image</p>
-                </div>
-                <p class="py-4 text-3xl ml-5"></p>
-                <!-- <hr > -->
-            </div>
+        <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+          <p>Resturants Image</p>
         </div>
-        <div class="container mx-auto pr-3">
-            <div
-                class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
-                <div class="h-20 bg-blue-400 flex items-center justify-between">
-                    <p class="mr-0 text-white text-lg pl-5">Fish & Meat</p>
-                </div>
-                <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
-                    <p>Resturants Image</p>
-                </div>
-                <p class="py-4 text-3xl ml-5"></p>
-                <!-- <hr > -->
-            </div>
-        </div>
-
-        <div class="container mx-auto pr-3">
-            <div
-                class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer">
-                <div class="h-20 bg-green-400 flex items-center justify-between">
-                    <p class="mr-0 text-white text-lg pl-5">Fruits & Vegetable</p>
-                </div>
-                <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
-                    <p>Resturants Image</p>
-                </div>
-                <p class="py-4 text-3xl ml-5"></p>
-                <!-- <hr > -->
-            </div>
-        </div>
-        <!---== First Stats Container ====--->
+        <p class="py-4 text-3xl ml-5"></p>
+        <!-- <hr > -->
+      </div>
     </div>
+    <div class="container mx-auto pr-3">
+      <div
+        class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer"
+      >
+        <div class="h-20 bg-yellow-400 flex items-center justify-between">
+          <p class="mr-0 text-white text-lg pl-5">Grocery</p>
+        </div>
+        <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+          <p>Grocery</p>
+        </div>
+        <p class="py-4 text-3xl ml-5"></p>
+        <!-- <hr > -->
+      </div>
+    </div>
+    <div class="container mx-auto pr-3">
+      <div
+        class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer"
+      >
+        <div class="h-20 bg-blue-400 flex items-center justify-between">
+          <p class="mr-0 text-white text-lg pl-5">Fish & Meat</p>
+        </div>
+        <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+          <p>Fish and Meat</p>
+        </div>
+        <p class="py-4 text-3xl ml-5"></p>
+        <!-- <hr > -->
+      </div>
+    </div>
+
+    <div class="container mx-auto pr-3">
+      <div
+        class="w-72 bg-white max-w-xs mx-auto rounded-sm overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-100 cursor-pointer"
+      >
+        <div class="h-20 bg-green-400 flex items-center justify-between">
+          <p class="mr-0 text-white text-lg pl-5">Fruits & Vegetable</p>
+        </div>
+        <div class="flex justify-between px-5 pt-6 mb-2 text-sm text-gray-600">
+          <p>Fruits & Vegetable</p>
+        </div>
+        <p class="py-4 text-3xl ml-5"></p>
+        <!-- <hr > -->
+      </div>
+    </div>
+    <!---== First Stats Container ====--->
+  </div>
 </div>
 
 <div class="mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Popular Brands</h2>
+  <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+    Popular Brands
+  </h2>
 
-    <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <app-pcard></app-pcard>
-        <app-pcard></app-pcard>
-        <app-pcard></app-pcard>
-        <app-pcard></app-pcard>
-        <app-pcard></app-pcard>
-    </div>
+  <div
+    class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+  >
+    <app-pcard></app-pcard>
+    <app-pcard></app-pcard>
+    <app-pcard></app-pcard>
+    <app-pcard></app-pcard>
+    <app-pcard></app-pcard>
+  </div>
 </div>
