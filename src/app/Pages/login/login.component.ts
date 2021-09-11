@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MasterService } from "src/app/Service/master.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -8,9 +9,14 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor(private service: MasterService, private fb: FormBuilder) {}
+  constructor(
+    private service: MasterService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {}
 
   showOtp = false;
+  newUser = false;
   data = [];
   statusMessage = "Send Otp";
   loginForm: FormGroup;
@@ -61,7 +67,7 @@ export class LoginComponent implements OnInit {
     if (this.showOtp && this.loginForm.get("otp").value != null) {
       var data = {
         otp: this.loginForm.get("otp").value,
-        phoneCode: this.loginForm.get("otp").value,
+        phoneCode: "+91",
         phoneNumber: this.loginForm.get("phoneNumber").value
       };
 
@@ -72,9 +78,13 @@ export class LoginComponent implements OnInit {
             this.data.push(res);
             if (this.data[0].message === "OTP Verified") {
               if (this.data[0].isNewUser) {
+                //
+                this.newUser = true;
+                this.showOtp = false;
               }
               localStorage.setItem("isLoggedIn", "true");
               localStorage.setItem("token", this.data[0].token); //auth token
+              this.router.navigate(["/dashboard"]);
             } else {
               alert(this.data[0].message);
             }
