@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   showOtp = false;
   data = [];
   statusMessage = "Send Otp";
-  loginForm: FormGroup | undefined;
+  loginForm: FormGroup;
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -25,24 +25,28 @@ export class LoginComponent implements OnInit {
   sendOtp() {
     //Verify the login form
     if (!this.showOtp) {
+      this.statusMessage = "loading...";
       if (this.loginForm.get("phoneNumber").value != null) {
         var data = {
           phoneCode: "+91",
           phoneNumber: this.loginForm.get("phoneNumber").value
         };
 
-        this.service.send("user/send-otp", data).subscribe((res) => {
-          if (res) {
-            this.data.push(res);
-              if(this.data[0].message === 'OTP Sended'){
-                localStorage.setItem(
-                  "phoneNumber",
-                  this.loginForm.get("phoneNumber").value
-                );
+        this.service.post("user/send-otp", data).subscribe(
+          (res) => {
+            if (res) {
+              this.data.push(res);
+              if (this.data[0].message === "OTP Sended") {
                 this.showOtp = true;
+                this.statusMessage = "Validate Otp";
               }
             }
-        });
+          },
+          (err) => {
+            alert(err.message);
+            this.statusMessage = "Send Otp";
+          }
+        );
       } else {
         //Validate form field
         alert("please enter phone");
@@ -61,18 +65,25 @@ export class LoginComponent implements OnInit {
         phoneNumber: this.loginForm.get("phoneNumber").value
       };
 
-      this.service.send("user/verify-otp", data).subscribe((res) => {
-        if (res) {
-          this.data.push(res);
-          if (this.data[0].message === "OTP Verified") {
-            if(this.data[0].isNewUser){}
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("token",this.data[0].token); //auth token
-          }else{
-            alert(this.data[0].message);
+      this.service.post("user/verify-otp", data).subscribe(
+        (res) => {
+          if (res) {
+            this.data = []; //empty data response array
+            this.data.push(res);
+            if (this.data[0].message === "OTP Verified") {
+              if (this.data[0].isNewUser) {
+              }
+              localStorage.setItem("isLoggedIn", "true");
+              localStorage.setItem("token", this.data[0].token); //auth token
+            } else {
+              alert(this.data[0].message);
+            }
           }
+        },
+        (err) => {
+          alert(err);
         }
-      });
+      );
     }
   }
 }
