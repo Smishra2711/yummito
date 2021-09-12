@@ -35,6 +35,7 @@ export class ProfileComponent implements OnInit {
     this.servide.authGet("order/list").subscribe(
       (res) => {
         this.orders.push(res);
+        console.log(this.orders);
       },
       (err) => {
         console.log(err);

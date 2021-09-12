@@ -90,12 +90,14 @@
         <h1 class="text-lg font-bold text-gray-800 leading-5 pt-2">
           {{type}}
         </h1>
-        <div class="pt-6 relative">
+
+        <!--List element starts-->
+        <div class="pt-6 relative" *ngFor="let o of orders[0]">
           <div class="flex items-center justify-between">
             <div class="flex items-center">
               <div class="w-2 h-2 rounded-full bg-purple-400"></div>
               <span class="text-purple-400 text-xs italic font-normal pl-1"
-                >11:30 AM</span
+                >{{o.orderNo}}</span
               >
             </div>
             <div
@@ -150,7 +152,7 @@
             </div>
           </div>
           <p class="text-sm leading-none pt-2 text-gray-600">
-            Meeting with stake holders
+            {{o.address}}
           </p>
           <p class="text-xs italic pt-1 leading-3 text-gray-400">
             Discussion on the template design
@@ -163,6 +165,8 @@
             </div>
           </div>
         </div>
+        <!--List Element EEnds -->
+
         <div class="pt-6 relative">
           <div class="flex items-center justify-between">
             <div class="flex items-center">
