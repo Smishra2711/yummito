@@ -26,12 +26,13 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     var self = this;
     this.type = this.route.snapshot.params["type"];
-    if (this.type === "order-history") {
+    if (this.type === "order-history ") {
       this.getAllOrders();
     }
   }
 
   getAllOrders() {
+    console.log("ee");
     this.servide.authGet("order/list").subscribe(
       (res) => {
         this.orders.push(res);
