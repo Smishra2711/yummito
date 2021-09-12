@@ -18,8 +18,7 @@ export class DashboardComponent implements OnInit {
   showStore() {}
 
   getAllStore(type) {
-    let apiPath =
-      "vendor/store-list?lat=9.8716317&lon=76.4926357&store_type=" + type + "";
+    let apiPath = `vendor/store-list?lat=9.8716317&lon=76.4926357&store_type=${type}`;
     this.service.get(apiPath).subscribe(
       (res) => {
         this.stores.push(res);

@@ -25,7 +25,11 @@ export class MasterService {
   }
 
   authGet(apiPath: string) {
-    const headers = { "content-type": "application/json" };
+    const headers = {
+      "content-type": "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI3OWY3YTI1LWRiMmMtNGYzYi05OTdjLTMxYjU3YzdiMTE1ZSIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjMxNDMyMzY0fQ.Uli6oNzplQsERvSJhn0INFUYnVg-xHA3f9o13cdpHnM"
+    };
     return this.http.get(this.apiServer + apiPath, { headers: headers });
   }
 }

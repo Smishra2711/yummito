@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { MasterService } from "src/app/Service/master.service";
 
 @Component({
   selector: "app-profile",
@@ -11,7 +12,7 @@ export class ProfileComponent implements OnInit {
   isMenu: boolean = false;
   isSearch: boolean = false;
   type = "";
-  Data = [];
+  orders = [];
   loadData: any;
   UID: string;
 
@@ -20,10 +21,24 @@ export class ProfileComponent implements OnInit {
     return this._loading;
   }
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private servide: MasterService) {}
 
   ngOnInit(): void {
     var self = this;
     this.type = this.route.snapshot.params["type"];
+    if (this.type === "order-history") {
+      this.getAllOrders();
+    }
+  }
+
+  getAllOrders() {
+    this.servide.authGet("order/list").subscribe(
+      (res) => {
+        this.orders.push(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }
