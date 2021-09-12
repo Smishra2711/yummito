@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     var self = this;
     this.type = this.route.snapshot.params["type"];
-    if (this.type === "order-history ") {
+    if (this.type === "order-history") {
       this.getAllOrders();
     }
   }
