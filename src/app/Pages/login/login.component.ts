@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
               this.data.push(res);
               if (this.data[0].message === "OTP Sended") {
                 this.showOtp = true;
+                this.loginForm.get("phoneNumber").disable();
                 this.statusMessage = "Validate Otp";
               }
             }

@@ -39,6 +39,10 @@ const routes: Routes = [
     component: ResturantComponent
   },
   {
+    path: "profile/:type",
+    component: ProfileComponent
+  },
+  {
     path: "",
     component: DashboardComponent,
     canActivate: [AuthGuard]
