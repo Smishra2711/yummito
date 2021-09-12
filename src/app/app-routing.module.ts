@@ -6,8 +6,8 @@ import { DashboardComponent } from "./Pages/dashboard/dashboard.component";
 import { HomeComponent } from "./Pages/home/home.component";
 import { ProfileComponent } from "./Pages/profile/profile.component";
 import { CartComponent } from "./Pages/cart/cart.component";
-import { AppComponent } from "./app.component";
 import { ResturantComponent } from "./Pages/resturant/resturant.component";
+import { AuthGuard } from "./Service/auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -37,6 +37,11 @@ const routes: Routes = [
   {
     path: "store/:type",
     component: ResturantComponent
+  },
+  {
+    path: "",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
